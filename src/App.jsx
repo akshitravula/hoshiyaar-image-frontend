@@ -3,7 +3,14 @@ import axios from "axios";
 
 const MAX_FILES = 200;
 const MAX_FILE_SIZE_MB = 50;
-const API_BASE = import.meta.env.VITE_API_BASE || "";
+const rawApiBase = import.meta.env.VITE_API_BASE || "";
+const API_BASE = (() => {
+  if (!rawApiBase) return "";
+  // if already absolute (starts with http:// or https://) or protocol-relative (//), use as-is
+  if (/^(https?:)?\/\//i.test(rawApiBase)) return rawApiBase;
+  // otherwise, assume https and prepend
+  return `https://${rawApiBase}`;
+})();
 
 function App() {
   const [files, setFiles] = useState([]);
