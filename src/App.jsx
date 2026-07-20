@@ -17,6 +17,7 @@ function App() {
   const [uploading, setUploading] = useState(false);
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
+  const [server, setServer] = useState("1");
 
   const handleFiles = useCallback((fileList) => {
     const arr = Array.from(fileList);
@@ -62,6 +63,7 @@ function App() {
 
     try {
       const formData = new FormData();
+      formData.append("server", server);
       files.forEach((file) => formData.append("images", file));
 
       const res = await axios.post(`${API_BASE}/api/upload`, formData, {
@@ -104,6 +106,27 @@ function App() {
           Drop images here or browse. Up to {MAX_FILES} images,{" "}
           {MAX_FILE_SIZE_MB}MB each.
         </p>
+
+        <div className="server-select" style={{ marginBottom: "1rem", display: "flex", gap: "1rem", justifyContent: "center" }}>
+          <label style={{ display: "flex", alignItems: "center", gap: "0.25rem", cursor: "pointer" }}>
+            <input
+              type="radio"
+              value="1"
+              checked={server === "1"}
+              onChange={(e) => setServer(e.target.value)}
+            />
+            Image Server 1
+          </label>
+          <label style={{ display: "flex", alignItems: "center", gap: "0.25rem", cursor: "pointer" }}>
+            <input
+              type="radio"
+              value="2"
+              checked={server === "2"}
+              onChange={(e) => setServer(e.target.value)}
+            />
+            Image Server 2
+          </label>
+        </div>
 
         <div
           className="dropzone"
