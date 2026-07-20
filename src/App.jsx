@@ -17,7 +17,7 @@ function App() {
   const [uploading, setUploading] = useState(false);
   const [results, setResults] = useState([]);
   const [error, setError] = useState("");
-  const [server, setServer] = useState("1");
+  const [server, setServer] = useState("2");
 
   const handleFiles = useCallback((fileList) => {
     const arr = Array.from(fileList);
@@ -106,6 +106,9 @@ function App() {
             type="button"
             className={`tab-btn ${server === "1" ? "active" : ""}`}
             onClick={() => setServer("1")}
+            disabled
+            title="Server 1 is currently blocked"
+            style={{ opacity: 0.5, cursor: "not-allowed" }}
           >
             <span>☁️</span> Server 1
           </button>
