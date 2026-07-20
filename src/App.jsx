@@ -101,28 +101,28 @@ function App() {
   return (
     <div className="page">
       <div className="card">
-        <h1>Images Upload</h1>
-        <p className="subtitle">
-          Drop images here or browse. Up to {MAX_FILES} images,{" "}
-          {MAX_FILE_SIZE_MB}MB each.
-        </p>
-
         <div className="tabs-container">
           <button
             type="button"
             className={`tab-btn ${server === "1" ? "active" : ""}`}
             onClick={() => setServer("1")}
           >
-            Image Server 1
+            <span>☁️</span> Server 1
           </button>
           <button
             type="button"
             className={`tab-btn ${server === "2" ? "active" : ""}`}
             onClick={() => setServer("2")}
           >
-            Image Server 2
+            <span>☁️</span> Server 2
           </button>
         </div>
+
+        <h1>Images Upload</h1>
+        <p className="subtitle">
+          Drop images here or browse. Up to {MAX_FILES} images,{" "}
+          {MAX_FILE_SIZE_MB}MB each.
+        </p>
 
         <div
           className="dropzone"
