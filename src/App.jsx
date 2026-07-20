@@ -107,25 +107,21 @@ function App() {
           {MAX_FILE_SIZE_MB}MB each.
         </p>
 
-        <div className="server-select" style={{ marginBottom: "1rem", display: "flex", gap: "1rem", justifyContent: "center" }}>
-          <label style={{ display: "flex", alignItems: "center", gap: "0.25rem", cursor: "pointer" }}>
-            <input
-              type="radio"
-              value="1"
-              checked={server === "1"}
-              onChange={(e) => setServer(e.target.value)}
-            />
+        <div className="tabs-container">
+          <button
+            type="button"
+            className={`tab-btn ${server === "1" ? "active" : ""}`}
+            onClick={() => setServer("1")}
+          >
             Image Server 1
-          </label>
-          <label style={{ display: "flex", alignItems: "center", gap: "0.25rem", cursor: "pointer" }}>
-            <input
-              type="radio"
-              value="2"
-              checked={server === "2"}
-              onChange={(e) => setServer(e.target.value)}
-            />
+          </button>
+          <button
+            type="button"
+            className={`tab-btn ${server === "2" ? "active" : ""}`}
+            onClick={() => setServer("2")}
+          >
             Image Server 2
-          </label>
+          </button>
         </div>
 
         <div

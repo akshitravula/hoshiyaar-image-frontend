@@ -193,3 +193,32 @@ body {
   }
 }
 
+/* Tabs */
+.tabs-container {
+  display: flex;
+  background: #f1f5f9;
+  border-radius: 999px;
+  padding: 4px;
+  margin-bottom: 24px;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.tab-btn {
+  padding: 8px 24px;
+  border-radius: 999px;
+  border: none;
+  background: transparent;
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.tab-btn.active {
+  background: #ffffff;
+  color: #2563eb;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
