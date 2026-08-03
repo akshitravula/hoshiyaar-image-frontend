@@ -119,6 +119,13 @@ function App() {
           >
             <span>☁️</span> Server 2
           </button>
+          <button
+            type="button"
+            className={`tab-btn ${server === "3" ? "active" : ""}`}
+            onClick={() => setServer("3")}
+          >
+            <span>☁️</span> Server 3
+          </button>
         </div>
 
         <h1>Images Upload</h1>
