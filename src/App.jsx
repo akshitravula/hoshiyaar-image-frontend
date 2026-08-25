@@ -123,6 +123,9 @@ function App() {
             type="button"
             className={`tab-btn ${server === "3" ? "active" : ""}`}
             onClick={() => setServer("3")}
+            disabled
+            title="Server 3 is currently blocked"
+            style={{ opacity: 0.5, cursor: "not-allowed" }}
           >
             <span>☁️</span> Server 3
           </button>
